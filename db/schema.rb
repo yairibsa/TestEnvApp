@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20220106221325) do
+=======
+ActiveRecord::Schema.define(version: 2021_12_22_215748) do
+>>>>>>> 7b422edccccd6adb5065655a9a488b4976fa2ed5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "guides", force: :cascade do |t|
     t.string   "title"
+=======
+  create_table "guides", id: :serial, force: :cascade do |t|
+    t.string "title"
+>>>>>>> 7b422edccccd6adb5065655a9a488b4976fa2ed5
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "skills", force: :cascade do |t|
     t.string   "title"
     t.integer  "percent_utilized"
@@ -28,4 +38,6 @@ ActiveRecord::Schema.define(version: 20220106221325) do
     t.datetime "updated_at",       null: false
   end
 
+=======
+>>>>>>> 7b422edccccd6adb5065655a9a488b4976fa2ed5
 end
