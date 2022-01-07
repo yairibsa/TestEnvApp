@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+10.times do |blog|
+    Guide.create!(
+        title:"My blog Post #{bloog}"
+        )
+end 
+
+puts "10 blog posts created"
+
+5.times do |skill|
+    Skill.create!(
+        title:"Rails #{skill}",
+        percent_utilized:15
+        )
+end
+
+puts "5 skills created"
+
+9.times do |portfolio_item|
+    Portfolio.create!(
+        title:"Portfolio title #{portfolio_item}" ,
+        subtitle:"My great service" ,
+        body:"By default, attribute names should be snakecase. 
+        You should generate a migration which will change Product_id to product_id and migrate as to fix the error. 
+        You should also change association names to snakecase as well. For instance" ,
+        main_image:"http://placehold.it/250x300",
+        thumb_image:"http://placehold.it/300x300"
+        )
+end
+
+puts "9 portfolios items created"
