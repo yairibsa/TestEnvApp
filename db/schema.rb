@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_005049) do
 
   create_table "guides", id: :serial, force: :cascade do |t|
     t.string "title"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
