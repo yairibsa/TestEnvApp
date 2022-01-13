@@ -1,5 +1,5 @@
 class GuidesController < ApplicationController
-  before_action :set_guide, only: %i[ show edit update destroy ]
+  before_action :set_guide, only: %i[ show edit update destroy toggle_status ]
 
   # GET /guides or /guides.json
   def index
@@ -55,6 +55,15 @@ class GuidesController < ApplicationController
       format.html { redirect_to guides_url, notice: "Guide was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+  
+  def toggle_status
+    if@guide.draft?
+    @guide.published! 
+    elsif @guide.published?
+     @guide.draft!
+    end
+    redirect_to guides_url, notice: "Guide status has been updated."
   end
 
   private
