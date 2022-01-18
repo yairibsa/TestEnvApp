@@ -13,7 +13,7 @@
   <tbody>
     <% @guides.each do |guide| %>
       <tr>
-        <td><%= guide.title %></td>
+        <td><%= guide.title.upcase %></td>
         <td><%= guide.body %></td>
         <td><%= link_to guide.status, toggle_status_guide_path(guide) %></td>
         <td><%= link_to 'Show', guide %></td>
