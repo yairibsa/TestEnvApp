@@ -37,8 +37,8 @@ puts "5 skills created"
         body:"By default, attribute names should be snakecase. 
         You should generate a migration which will change Product_id to product_id and migrate as to fix the error. 
         You should also change association names to snakecase as well. For instance" ,
-        main_image:"http://placehold.it/250x300",
-        thumb_image:"http://placehold.it/300x300"
+        main_image:"https://via.placeholder.com/150",
+        thumb_image:"https://via.placeholder.com/300"
         )
 end
 
@@ -49,8 +49,8 @@ end
         body:"By default, attribute names should be snakecase. 
         You should generate a migration which will change Product_id to product_id and migrate as to fix the error. 
         You should also change association names to snakecase as well. For instance" ,
-        main_image:"http://placehold.it/250x300",
-        thumb_image:"http://placehold.it/300x300"
+        main_image:"https://via.placeholder.com/150",
+        thumb_image:"https://via.placeholder.com/300"
         )
 end
 
