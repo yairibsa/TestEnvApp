@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :messages, except: [:show]
+  get 'message/:id', to: 'messages#show', as:'message_show'
+  get 'user', to: 'messages#user'
+  
   resources :portfolios, except: [:show]
   get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as:'portfolio_show'

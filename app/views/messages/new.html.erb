@@ -1,0 +1,27 @@
+<h1>Create a new Message</h1>
+
+<%= form_for(@message) do |f| %>
+ <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :active %>
+    <%= f.text_field :active %>
+  </div>
+  
+  
+  <ul>
+    <%= f.fields_for :users do |user_form| %>
+    <li>
+      <%= user_form.label :name %>
+      <%= user_form.text_field :name %>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

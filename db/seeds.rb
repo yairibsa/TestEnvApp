@@ -63,3 +63,11 @@ puts "9 portfolios items created"
     end
     
 puts "3 technologies created"
+
+1.times do |message|
+    Message.create!(
+        body:"Hello world" ,
+        active:1 
+        )
+    end
+    

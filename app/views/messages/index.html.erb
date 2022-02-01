@@ -1,0 +1,11 @@
+<h1>Messages</h1>
+
+<%= link_to "Create a new Message", new_message_url %>
+
+
+<% @messages.each do |messages| %>
+    <p><%= link_to messages.body, message_show_path(messages) %></p>
+    <p><%= messages.active %></p>
+   
+   
+<% end %>
