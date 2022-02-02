@@ -1,10 +1,14 @@
 
-<h1><%= @message.body %></h1>
+<h1><%= @messages.body %></h1>
 
-<em><%= @message.active %></em>
+<em><%= @messages.active %></em>
 
 <h2>User Used:</h2>
+<% if false %>
 
-<% @message.users.each do |t| %>
+Fuente: https://www.iteramos.com/pregunta/22595/como-comentar-las-lineas-en-los-archivos-htmlerb-de-rails
+<% @messages.users.each do |t| %>
 <p><%= t.name %></p>
-<% end %>
+<% end %> 
+
+<% end %> 
