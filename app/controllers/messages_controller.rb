@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
   
   def new
       @messages = Message.new
-       # 1.times { @messages.users.build }
+        #1.times { @messages.users.build }
   end  
   
   def create

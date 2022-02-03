@@ -1,4 +1,4 @@
-<h1>Create a new User</h1>
+<h1>Edit this User</h1>
 
 <%= form_for(@user) do |f| %>
   <div class="field">
@@ -10,16 +10,6 @@
     <%= f.label :password %>
     <%= f.text_field :password %>
   </div>
-  
-  
-  <ul>
-    <%= f.fields_for :users do |user_form| %>
-    <li>
-      <%= user_form.label :name %>
-      <%= user_form.text_field :name %>
-    </li>
-    <% end %>
-  </ul>
 
   <div class="actions">
     <%= f.submit %>
