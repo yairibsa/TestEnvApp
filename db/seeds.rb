@@ -74,7 +74,7 @@ puts "3 technologies created"
 #1.times do |user|
  #   Message.last.users.create!(
   #      name: "Users #{user}"
-    #    )
+        #)
    # end
     
 #puts "User created"

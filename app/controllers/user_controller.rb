@@ -1,20 +1,19 @@
 class UserController < ApplicationController
   def index
-    @user = Message.all
+    @user = User.all
   end
   
   def new
-    @user = Message.new
+    @user = User.new
   end
   
   def new
-      @user = Message.new
+      @user = User.new
        # 1.times { @messages.users.build }
   end  
   
   def create
-      @user = User.new(params.require(:user).permit(users_attributes: [:name]))
-
+      @user = User.new(params.require(:user).permit(:name, :password))
       respond_to do |format|
         if @user.save
           format.html { redirect_to users_path, notice: "You user is now live." }
@@ -27,11 +26,11 @@ class UserController < ApplicationController
   end
     
   def edit
-       @user = Message.find(params[:id])
+       @user = User.find(params[:id])
   end  
   
   def update
-        @user = Message.find(params[:id])
+        @user = User.find(params[:id])
         
         respond_to do |format|
           if @user.update(params.require(:message).permit(:body, :active))
@@ -46,7 +45,7 @@ class UserController < ApplicationController
   
     
   def show
-      @user = Message.find(params[:id])
+      @user = User.find(params[:id])
   end
   
   def destroy
