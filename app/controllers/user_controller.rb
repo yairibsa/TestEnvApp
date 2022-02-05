@@ -2,14 +2,9 @@ class UserController < ApplicationController
   def index
     @user = User.all
   end
-  
+
   def new
     @user = User.new
-  end
-  
-  def new
-      @user = User.new
-       # 1.times { @messages.users.build }
   end  
   
   def create
@@ -50,14 +45,14 @@ class UserController < ApplicationController
   
   def destroy
       # Perform the lookup
-      @user = Message.find(params[:id])
+      @user = User.find(params[:id])
        
        # Destroy/Delete the record
       @user.destroy
       
       # Redirect
       respond_to do |format|
-        format.html { redirect_to messages_url, notice: "The record was removed." }
+        format.html { redirect_to user_url, notice: "The record was removed." }
      
       end
   end

@@ -12,8 +12,7 @@
   </div>
   
   
-  
-  
+  <% if false %>
   <ul>
     <%= f.fields_for :users do |user_form| %>
     <li>
@@ -22,6 +21,7 @@
     </li>
     <% end %>
   </ul>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>
