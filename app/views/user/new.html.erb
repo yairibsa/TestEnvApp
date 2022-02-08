@@ -1,18 +1,7 @@
 <h1>Create a new User</h1>
-
+  
 <%= form_for(@user) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-  
-  
-  <% if false %>
+ <div class="field">
   <ul>
     <%= f.fields_for :users do |user_form| %>
     <li>
@@ -21,9 +10,10 @@
     </li>
     <% end %>
   </ul>
-  <% end %>
+ </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+
 <% end %>
