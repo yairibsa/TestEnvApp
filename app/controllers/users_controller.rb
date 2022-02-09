@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def index
     @user = User.all
   end
@@ -9,6 +9,7 @@ class UserController < ApplicationController
   
   def create
       @user = User.new(params.require(:user).permit(:name, :password))
+      
       respond_to do |format|
         if @user.save
           format.html { redirect_to users_path, notice: "You user is now live." }

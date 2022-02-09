@@ -18,7 +18,7 @@
     <%= f.fields_for :users do |user_form| %>
     <li>
       <%= user_form.label :name %>
-      <%= user_form.text_field :name %>
+      <%= user_form.collection_select(:user_id, User.all, :password, :name) %>
     </li>
     <% end %>
   </ul>

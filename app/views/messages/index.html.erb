@@ -1,15 +1,16 @@
 <h1>User</h1>
-<%= link_to "View Users", user_index_url %>
+<%= link_to "View Users", users_path %>
 
 <h1>Messages</h1>
 
-<%= link_to "Create a new Message", new_message_url %>
+<%= link_to "Create a new Message", new_message_path %>
 
 
 
 <% @messages.each do |messages| %>
     <p><%= link_to messages.body, message_show_path(messages) %></p>
     <p><%= messages.active %></p>
+    <p><%= link_to messages.user_id, user_show_path(messages) %></p>
     <%= link_to "Edit", edit_message_path(messages.id) %>
     <%= link_to 'Delete Message', message_path(messages), method: :delete, data: { confirm: 'Are you sure?' } %>
    

@@ -13,12 +13,11 @@ class MessagesController < ApplicationController
   
   def new
       @messages = Message.new
-        #1.times { @messages.users.build }
+        
   end  
   
   def create
-      @messages = Message.new(params.require(:message).permit(:body, :active, 
-      users_attributes: [:name]))
+      @messages = Message.new(params.require(:message).permit(:body, :active, :user_id))
 
       respond_to do |format|
         if @messages.save
