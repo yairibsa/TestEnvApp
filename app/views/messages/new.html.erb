@@ -11,19 +11,15 @@
     <%= f.text_field :active %>
   </div>
   
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.select :user_id, [[ "Hugo", "1"], ["Yair", "2"], ["Panchito", "3"], ["Juan", "5"], ["Francisco", "6"]] %>
+    <%#<%= f.number_field :user_id %>
+  </div>
   
-  <h1>User</h1>
-
-  <ul>
-    <%= f.fields_for :users do |user_form| %>
-    <li>
-      <%= user_form.label :name %>
-      <%= user_form.collection_select(:user_id, User.all, :password, :name) %>
-    </li>
-    <% end %>
-  </ul>
-
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Back', messages_path %>

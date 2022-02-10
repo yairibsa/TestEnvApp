@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :messages, except: [:show]
   get 'message/:id', to: 'messages#show', as:'message_show'
-  #get 'user', to: 'messages#user'
+  get 'message-user', to: 'messages#user'
   
   resources :users, except: [:show]
   get 'user/:id', to: 'users#show', as:'user_show'

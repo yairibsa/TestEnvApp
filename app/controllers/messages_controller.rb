@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
-  #def user
-   # @user = Message.user
-  #end
-
   def index
     @messages = Message.all
+  end
+  
+  def user
+    @user_messages = Message.user
   end
   
   def newuser
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
   
   def new
       @messages = Message.new
-        
+         
   end  
   
   def create
