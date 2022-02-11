@@ -3,8 +3,12 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
   
-  def user
-    @user_messages = Message.user
+  def user1
+    @user_messages = Message.user1
+  end
+  
+  def user2
+    @user2_messages = Message.user2
   end
   
   def newuser
@@ -52,6 +56,7 @@ class MessagesController < ApplicationController
   def show
       @messages = Message.find(params[:id])
   end
+  
   
   def destroy
       # Perform the lookup

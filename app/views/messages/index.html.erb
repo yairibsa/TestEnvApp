@@ -1,4 +1,4 @@
-<h1>User</h1>
+<h1>Users</h1>
 <%= link_to "View Users", users_path %>
 
 <h1>Messages</h1>
@@ -7,11 +7,12 @@
 
 
 
-<% @messages.each do |messages| %>
-    <p><%= link_to messages.body, message_show_path(messages) %></p>
-    <p><%= messages.active %></p>
-    <p><%= link_to messages.user_id, message_user_path if messages.user_id? %></p>
-    <%= link_to "Edit", edit_message_path(messages.id) %>
-    <%= link_to 'Delete Message', message_path(messages), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% @messages.each do |message| %>
+    <p><%= link_to message.body, message_show_path(message) %></p>
+    <p><%= message.active %></p>
+    <p><%= link_to message.user.name, user_show_path(message.user) if message.user_id? %></p> <%#message_user_path  %> 
+    <%= link_to "Edit", edit_message_path(message.id) %>
+    <%= link_to 'Delete Message', message_path(message), method: :delete, data: { confirm: 'Are you sure?' } %>
    
 <% end %>
+
