@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   devise_for :ussers, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  resources :messages, except: [:show]
+  get 'message/:id', to: 'messages#show', as:'message_show'
+  get 'message-user', to: 'messages#user'
+  get 'message-user2', to: 'messages#user2'
+  
+  
+  resources :users, except: [:show]
+  get 'user/:id', to: 'users#show', as:'user_show'
+  
   resources :portfolios, except: [:show]
   get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as:'portfolio_show'

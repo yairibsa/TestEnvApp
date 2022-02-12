@@ -1,0 +1,11 @@
+<h1>Name:</h1>
+
+<h2><%= @user.name %></h2>
+
+<em><%= @user.password %></em>
+
+<h2>Messages:</h2>
+
+<% @user.messages.each do |t| %>
+<p><%= t.body %></p>
+<% end %>
