@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :ussers, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :messages, except: [:show]
   get 'message/:id', to: 'messages#show', as:'message_show'
   get 'message-user', to: 'messages#user'
