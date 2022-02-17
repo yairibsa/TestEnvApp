@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_11_210506) do
+ActiveRecord::Schema.define(version: 2022_02_17_001409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,15 +37,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_210506) do
     t.bigint "topic_id"
     t.index ["slug"], name: "index_guides_on_slug", unique: true
     t.index ["topic_id"], name: "index_guides_on_topic_id"
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "body"
-    t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "portfolios", force: :cascade do |t|
@@ -80,13 +71,6 @@ ActiveRecord::Schema.define(version: 2022_02_11_210506) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.text "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ussers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,6 +90,5 @@ ActiveRecord::Schema.define(version: 2022_02_11_210506) do
   end
 
   add_foreign_key "guides", "topics"
-  add_foreign_key "messages", "users"
   add_foreign_key "technologies", "portfolios"
 end
