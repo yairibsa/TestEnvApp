@@ -1,5 +1,6 @@
 <tr>
     <td><%= guide.title.upcase %></td>
+    <td>Published <%=  distance_of_time_in_words(guide.created_at, Time.now) %> ago </td>
     <td><%= guide.body %></td>
     <td><%= link_to guide.status, toggle_status_guide_path(guide) %></td>
     <td><%= link_to 'Show', guide %></td>
