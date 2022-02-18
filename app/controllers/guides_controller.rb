@@ -1,13 +1,16 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: %i[ show edit update destroy toggle_status ]
+  layout "guide"
 
   # GET /guides or /guides.json
   def index
     @guides = Guide.all
+    @page_title = "My App Guide"
   end
 
   # GET /guides/1 or /guides/1.json
   def show
+    @page_title = @guide.title
   end
 
   # GET /guides/new
