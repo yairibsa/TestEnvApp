@@ -4,7 +4,8 @@ class GuidesController < ApplicationController
 
   # GET /guides or /guides.json
   def index
-    @guides = Guide.all
+   # byebug
+    @guides = Guide.special_guides
     @page_title = "My App Guide"
   end
 
