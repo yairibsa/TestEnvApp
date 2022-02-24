@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   include DeviseWhitelist
   include SetSource
-  include CurrentUsserConcern
+  include CurrentUserConcern
   include DefaultPageContent
   
   before_action :set_copyright
