@@ -4,6 +4,6 @@
     <td><%= guide.body %></td>
     <td><%= link_to guide.status, toggle_status_guide_path(guide) %></td>
     <td><%= link_to 'Show', guide %></td>
-    <td><%= link_to 'Edit', edit_guide_path(guide) %></td>
-    <td><%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit', edit_guide_path(guide) if logged_in?(:site_admin) %></td>
+    <td><%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' }  if logged_in?(:site_admin) %></td>
  </tr>
