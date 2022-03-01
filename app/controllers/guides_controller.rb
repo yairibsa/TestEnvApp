@@ -1,7 +1,7 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: %i[ show edit update destroy toggle_status ]
   layout "guide"
-  access all: [:show, :index], user: {except: [:destroy,:new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy,:new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /guides or /guides.json
   def index
