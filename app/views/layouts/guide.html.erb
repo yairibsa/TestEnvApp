@@ -37,14 +37,19 @@
     </div>
     
     <!-- End for nav -->
+    <div class="blog header">
+      <div class="container">
+        <h1 class="blog-title">My Guide</h1>
+        <p class="lead blog-description">An example blo template built with Bootstrap.</p>
+        <%= link_to 'New Guide', new_guide_path if logged_in?(:site_admin) %>
+      </div>
+    </div>
+    
     
     <!-- start of container and row element-->
     <main role="main" class="container">
       <div class="row">
-    
-    <!-- start of container and row element-->
-    
-          
+    <!-- start of container and row element -->
         <%= yield %>
         
         <!--start  of sidebar -->
@@ -83,7 +88,7 @@
           </div>
         </aside><!-- /.blog-sidebar -->
         <!-- end of sidebar -->
-        <!-- start of footer -->
+      </div>  <!-- start of footer -->
         <footer class="blog-footer">
           <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
           <p>
@@ -95,7 +100,7 @@
         <%= render "shared/nav", location: 'bottom' %>
         
         <%= source_helper("guide") %>
-      </div>
+      
     </main>
   </body>
 </html>
