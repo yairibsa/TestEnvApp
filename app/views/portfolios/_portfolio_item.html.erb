@@ -1,5 +1,5 @@
  <div class="card mb-4 box-shadow" data-id="<%= portfolio_item.id %> ">
-  <%= image_tag portfolio_item.thumb_image if !portfolio_item.thumb_image.nil? %>
+  <%= image_tag portfolio_item.thumb_image.url if !portfolio_item.thumb_image.nil? %> 
   <div class="card-body">
    <p class="card-text">
     <spend><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></spend> <%= portfolio_item.subtitle %>
