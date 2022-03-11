@@ -79,6 +79,6 @@ class GuidesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guide_params
-      params.require(:guide).permit(:title)
+      params.require(:guide).permit(:title, :body)
     end
 end
