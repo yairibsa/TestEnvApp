@@ -1,14 +1,8 @@
 <%= form_for(guide) do |f| %>
   <% if guide.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
-
-      <ul>
-      <% guide.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+   <% guide.errors.full_messages.each do |error| %>
+     <%= js add_gritter(error, title: "Hugo Ibañez Portfolio", sticky: false) %> 
+   <% end %>
   <% end %>
 
   <div class="form-group">
