@@ -7,6 +7,8 @@ class Guide < ApplicationRecord
     
     belongs_to :topic
     
+    has_many :comments, dependent: :destroy
+    
     def self.special_guides
         all
     end
