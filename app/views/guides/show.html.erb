@@ -12,7 +12,10 @@
       <!--End of comment form -->
       
       <!-- Start of comments -->
-      <%= render @guide.comments %>
+      <div id="comments" data-guide-id="<%= @guide.id %>">
+        <%= render @guide.comments %>
+      </div>
+      
     
       <!-- End of comments -->
 
