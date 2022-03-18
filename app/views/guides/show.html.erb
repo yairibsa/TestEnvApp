@@ -6,6 +6,18 @@
       <p>
         <%= @guide.body if !@guide.body.nil? %>
       </p>
+      
+      <!--Start of comment form -->
+      <%= render 'comments/comments_form' %>
+      <!--End of comment form -->
+      
+      <!-- Start of comments -->
+      <div id="comments" data-guide-id="<%= @guide.id %>">
+        <%= render @guide.comments %>
+      </div>
+      
+    
+      <!-- End of comments -->
 
   </div>
 
