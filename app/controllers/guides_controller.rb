@@ -5,8 +5,11 @@ class GuidesController < ApplicationController
 
   # GET /guides or /guides.json
   def index
-   # byebug
-    @guides = Guide.page(params[:page]).per(5)
+    if logged_in?(:site_admin) 
+      @guides = Guide.recent.page(params[:page]).per(5)
+    else
+      @guides = Guide.published.recent.page(params[:page]).per(5)
+    end
     @page_title = "My App Guide"
   end
 
