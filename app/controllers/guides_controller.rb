@@ -15,10 +15,14 @@ class GuidesController < ApplicationController
 
   # GET /guides/1 or /guides/1.json
   def show
-    @guide = Guide.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
-    
-    @page_title = @guide.title
+    if logged_in?(:site_admin) || @guide.published?
+      @guide = Guide.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+      
+      @page_title = @guide.title
+    else
+      redirect_to guides_path, notice: "You are not authorized to acces this page"
+    end
   end
 
   # GET /guides/new
