@@ -90,7 +90,7 @@ class GuidesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guide_params
-      params.require(:guide).permit(:title, :body, :topic_id)
+      params.require(:guide).permit(:title, :body, :topic_id, :status)
     end
     
     def set_sidebar_topics
