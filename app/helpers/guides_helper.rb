@@ -22,5 +22,11 @@ module GuidesHelper
         markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
         markdown_to_html.render(text).html_safe
     end
+    
+    def guide_status_color guide
+        if guide.draft?
+            'color: red;'
+        end
+    end
         
 end
