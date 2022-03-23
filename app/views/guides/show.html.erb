@@ -9,7 +9,7 @@
       <%= link_to 'Edit', edit_guide_path(@guide) if logged_in?(:site_admin) %>
       
       <p>
-        <%= @guide.body if !@guide.body.nil? %>
+        <%= markdown @guide.body if !@guide.body.nil? %>
       </p>
       
       <!--Start of comment form -->
