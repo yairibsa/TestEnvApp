@@ -15,6 +15,11 @@
 @import "jquery-ui";
 @import "gritter";
 
+@font-face {
+  font-family: 'Roboto Slab';
+  src: font-url('RobotoSlab-Regular.ttf')
+}
+
 :root {
   --jumbotron-padding-y: 3rem;
 }

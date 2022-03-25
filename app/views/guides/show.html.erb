@@ -1,10 +1,27 @@
 <div class="col-md-8 blog-main">
 
       <h2><%= @guide.title %></h2>
+      
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <%= link_to "Home", root_path, class: 'breadcrumb-item' %>
+          <%= link_to @guide.topic.title, topic_path(@guide.topic), class: 'breadcrumb-item' %>
+          
+          <li class="breadcrumb-item active" aria-current="page"><%= @guide.title %></li>
+          
+          <span class="pull-right">
+            <%= link_to fa_icon('pencil-square-o'), edit_guide_path(@guide) if logged_in?(:site_admin) %>
+            <%= link_to fa_icon('trash'), @guide, method: :delete, data: { confirm: 'Are you sure you want to delete this post
+            ' } if logged_in?(:site_admin) %>
+          </span>
+        </ol>
+      </nav>
+      
+      
       <%= link_to 'Edit', edit_guide_path(@guide) if logged_in?(:site_admin) %>
       
       <p>
-        <%= @guide.body if !@guide.body.nil? %>
+        <%= markdown @guide.body if !@guide.body.nil? %>
       </p>
       
       <!--Start of comment form -->

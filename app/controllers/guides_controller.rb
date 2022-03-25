@@ -1,21 +1,29 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: %i[ show edit update destroy toggle_status ]
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status ]
   layout "guide"
   access all: [:show, :index], user: {except: [:destroy,:new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /guides or /guides.json
   def index
-   # byebug
-    @guides = Guide.page(params[:page]).per(5)
+    if logged_in?(:site_admin) 
+      @guides = Guide.recent.page(params[:page]).per(5)
+    else
+      @guides = Guide.published.recent.page(params[:page]).per(5)
+    end
     @page_title = "My App Guide"
   end
 
   # GET /guides/1 or /guides/1.json
   def show
-    @guide = Guide.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
-    
-    @page_title = @guide.title
+    if logged_in?(:site_admin) || @guide.published?
+      @guide = Guide.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+      
+      @page_title = @guide.title
+    else
+      redirect_to guides_path, notice: "You are not authorized to acces this page"
+    end
   end
 
   # GET /guides/new
@@ -82,6 +90,10 @@ class GuidesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guide_params
-      params.require(:guide).permit(:title, :body)
+      params.require(:guide).permit(:title, :body, :topic_id, :status)
+    end
+    
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_guides
     end
 end

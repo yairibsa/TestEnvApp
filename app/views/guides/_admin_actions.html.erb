@@ -1,0 +1,7 @@
+<% if logged_in?(:site_admin) %>
+    <nav class="breadcrumb guidecrumb">
+    <%= link_to fa_icon('file-text'), toggle_status_guide_path(guide), style: guide_status_color(guide) %> 
+    <%= link_to fa_icon('pencil-square-o'), edit_guide_path(guide) %> 
+    <%= link_to fa_icon('trash'), guide, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </nav>
+<% end %>

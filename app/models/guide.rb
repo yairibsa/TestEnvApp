@@ -3,7 +3,7 @@ class Guide < ApplicationRecord
     extend FriendlyId
     friendly_id:title, use: :slugged
     
-    validates_presence_of :title
+    validates_presence_of :title, :body, :topic_id
     
     belongs_to :topic
     
@@ -15,5 +15,9 @@ class Guide < ApplicationRecord
     
     def self.featured_guides
         limit(2)
+    end
+    
+    def self.recent
+        order("created_at DESC")
     end
 end

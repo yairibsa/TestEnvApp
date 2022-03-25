@@ -2,13 +2,7 @@
       <h2 class="blog-post-title"><%= link_to guide.title.upcase, guide %></h2>
       <p class="blog-post-meta">Published <%=  distance_of_time_in_words(guide.created_at, Time.now) %> ago</p>
       
-      <% if logged_in?(:site_admin) %>
-      <p class="blog-post-meta">
-          <%= link_to guide.status, toggle_status_guide_path(guide) %> /
-          <%= link_to 'Edit', edit_guide_path(guide) %> /
-          <%= link_to 'Destroy', guide, method: :delete, data: { confirm: 'Are you sure?' }  if logged_in?(:site_admin) %>
-      </p>
-      <% end %>
+      <%= render partial: 'guides/admin_actions', locals: {guide: guide} %>
       
       <p>
           <%= guide.body %>
@@ -16,3 +10,4 @@
       
  </div><!-- /.blog-post -->
 
+ 

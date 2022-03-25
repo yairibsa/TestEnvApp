@@ -10,7 +10,27 @@
     <%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
   </div>
   
-   <div class="form-group">
+  <div class="form-group">
+      <%= f.label :topic_id %>
+      <%= f.collection_select(:topic_id, Topic.all, :id, :title,
+                                 {
+                                     selected: guide.topic,#.id,
+                                     include_blank: true
+                                 },
+                                 class: 'form-control'
+                             ) 
+                             %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.radio_button :status, 'draft' %>
+    <%= f.label :status, 'Draft'%>
+    
+    <%= f.radio_button :status, 'published' %>
+    <%= f.label :status, 'Published'%>
+  </div>
+  
+  <div class="form-group">
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control', placeholder: 'Content' %>
   </div>
