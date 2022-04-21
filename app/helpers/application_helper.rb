@@ -69,7 +69,7 @@ module ApplicationHelper
     end
     
     def alert_generator msg
-        js add_gritter(msg, title: "Hugo Ibañez Portfolio", sticky: false)
+        js add_gritter(msg, title: "Hugo Ibañez Portfolio", sticky: false).html_safe
     end
     
 end
