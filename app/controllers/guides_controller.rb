@@ -6,7 +6,7 @@ class GuidesController < ApplicationController
 
   # GET /guides or /guides.json
   def index
-    if logged_in?(:site_admin) 
+    if logged_in?(:site_admin, :user) 
       @guides = Guide.recent.page(params[:page]).per(5)
     else
       @guides = Guide.published.recent.page(params[:page]).per(5)
