@@ -9,7 +9,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     
-    if logged_in?(:site_admin) 
+    if logged_in?(:site_admin,:user) 
       @guides = @topic.guides.recent.page(params[:page]).per(5)
     else
       @guides = @topic.guides.published.recent.page(params[:page]).per(5)

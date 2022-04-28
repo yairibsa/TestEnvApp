@@ -16,7 +16,7 @@ class GuidesController < ApplicationController
 
   # GET /guides/1 or /guides/1.json
   def show
-    if logged_in?(:site_admin) || @guide.published?
+    if logged_in?(:site_admin, :user) || @guide.published?
       @guide = Guide.includes(:comments).friendly.find(params[:id])
       @comment = Comment.new
       
